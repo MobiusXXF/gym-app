@@ -10,24 +10,24 @@ const db = mysql.createConnection({
 user: 'root',
 host: 'localhost',
 password: 'password',
-database: 'employeeSystem'
+database: 'gymClasses'
 });
-postman
 
-app.post('/create'), (req, res) => {
+
+app.get('/create'), (req, res) => {
     const name = req.body.name;
-    const age = req.body.age;
-    const country = req.body.country;
-    const position = req.body.position;
-    const wage = req.body.wage;
+    const description = req.body.description;
+    const time = req.body.time;
+    const avgattend = req.body.avgattend;
+    
 
     db.query(
-        'INSERT INTO employee (name, age, country, position, wages) VALUES (?,?,?,?,?)', 
-        [name, age, country, position, wage],(err, res) => {
+        'SELECT class FROM gymClasses (name, description, time, avgattend) VALUES (?,?,?,?,?)', 
+        [name, description, time, avgattend],(err, res) => {
             if (err) {
             console.log(err);
             } else {
-                res.send("Values Inserted");
+                res.send("Request Successful");
             }
         }
     );
