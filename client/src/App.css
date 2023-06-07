@@ -43,6 +43,7 @@ header h1 {
   box-shadow: 5px 5px 5px 5px lightgray;
   opacity: 0.3;
   transition: opacity 0.3s ease;
+  margin: 20px;
 }
 
 .card:hover {
